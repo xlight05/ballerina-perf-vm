@@ -1,0 +1,40 @@
+name: create_base_image
+
+on:
+  workflow_dispatch:
+  push:
+      branches:
+          - 'master'
+      paths:
+          - 'base-image/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TEST_NAME: "h1_h1_passthrough"
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
+        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+    - name: Login via Az module
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Build and Distribute Custom VM Image
+      id: imageBuilder
+      uses: azure/build-vm-image@v0
+      with:
+        resource-group-name: '${{ secrets.CLUSTER_RESOURCE_GROUP }}'
+        location: 'eastus'
+        managed-identity: 'bal-perf-identity'
+        source-os-type: 'linux'
+        source-image-type: 'PlatformImage'
+        vm-size: 'Standard_F4s_v2'
+        source-image: Canonical:UbuntuServer:18.04-LTS:latest
+        dist-image-tags: 'number:${{ GITHUB.RUN_NUMBER }}'
+        customizer-source: ${{ GITHUB.WORKSPACE }}/base-image
+        customizer-script: |
+          sudo cp -r /tmp/base-image/ /
+          sh /base-image/init.sh
