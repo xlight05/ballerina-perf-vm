@@ -18,6 +18,8 @@
 # ----------------------------------------------------------------------------
 set -e
 
-sudo apt update && sudo apt-get install wget -y
+wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -
+sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+sudo apt update && sudo apt-get install wget -y && sudo apt install adoptopenjdk-11-openj9 -y
 wget https://dist.ballerina.io/downloads/swan-lake-beta2/ballerina-linux-installer-x64-swan-lake-beta2.deb
 sudo dpkg -i ballerina-linux-installer-x64-swan-lake-beta2.deb

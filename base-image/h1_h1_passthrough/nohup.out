@@ -1,0 +1,7 @@
+Compiling source
+	wso2/h1_h1_passthrough:0.0.1
+
+Running executable
+
+[ballerina/http] started HTTPS/WSS listener 0.0.0.0:9090
+[ballerina/http] stopped HTTPS/WSS listener 0.0.0.0:9090
