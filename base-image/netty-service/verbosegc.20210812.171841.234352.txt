@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+
+<verbosegc xmlns="http://www.ibm.com/j9/verbosegc" version="113e54219_CMPRSS">
+
+<initialized id="1" timestamp="2021-08-12T17:18:41.338">
+  <attribute name="gcPolicy" value="-Xgcpolicy:gencon" />
+  <attribute name="maxHeapSize" value="0x40000000" />
+  <attribute name="initialHeapSize" value="0x40000000" />
+  <attribute name="compressedRefs" value="true" />
+  <attribute name="compressedRefsDisplacement" value="0x0" />
+  <attribute name="compressedRefsShift" value="0x0" />
+  <attribute name="pageSize" value="0x1000" />
+  <attribute name="pageType" value="not used" />
+  <attribute name="requestedPageSize" value="0x1000" />
+  <attribute name="requestedPageType" value="not used" />
+  <attribute name="gcthreads" value="8" />
+  <attribute name="gcthreads Concurrent Mark" value="1" />
+  <attribute name="packetListSplit" value="1" />
+  <attribute name="cacheListSplit" value="1" />
+  <attribute name="splitFreeListSplitAmount" value="1" />
+  <attribute name="numaNodes" value="0" />
+  <system>
+    <attribute name="physicalMemory" value="16569692160" />
+    <attribute name="numCPUs" value="8" />
+    <attribute name="architecture" value="amd64" />
+    <attribute name="os" value="Linux" />
+    <attribute name="osVersion" value="5.4.0-80-generic" />
+  </system>
+  <vmargs>
+    <vmarg name="-Xoptionsfile=/home/anjana/.jdks/adopt-openj9-11.0.8/lib/options.default" />
+    <vmarg name="-Xlockword:mode=default,noLockword=java/lang/String,noLockword=java/util/MapEntry,noLockword=java/util/HashMap$Entry,noLockword..." />
+    <vmarg name="-Xjcl:jclse29" />
+    <vmarg name="-Dcom.ibm.oti.vm.bootstrap.library.path=/home/anjana/.jdks/adopt-openj9-11.0.8/lib/compressedrefs:/home/anjana/.jdks/adopt-open..." />
+    <vmarg name="-Dsun.boot.library.path=/home/anjana/.jdks/adopt-openj9-11.0.8/lib/compressedrefs:/home/anjana/.jdks/adopt-openj9-11.0.8/lib" />
+    <vmarg name="-Djava.library.path=/home/anjana/.jdks/adopt-openj9-11.0.8/lib/compressedrefs:/home/anjana/.jdks/adopt-openj9-11.0.8/lib:/usr/l..." />
+    <vmarg name="-Djava.home=/home/anjana/.jdks/adopt-openj9-11.0.8" />
+    <vmarg name="-Duser.dir=/home/anjana/repos/ballerina-perf-vm/base-image/netty-service" />
+    <vmarg name="-Xms1g" />
+    <vmarg name="-Xmx1g" />
+    <vmarg name="-XX:+PrintGC" />
+    <vmarg name="-XX:+PrintGCDetails" />
+    <vmarg name="-XX:+PrintGCDateStamps" />
+    <vmarg name="-Xloggc:" />
+    <vmarg name="-Djava.class.path=netty-http-echo-service-0.4.6-SNAPSHOT.jar" />
+    <vmarg name="-Dsun.java.command=netty-http-echo-service-0.4.6-SNAPSHOT.jar --ssl --key-store-file /home/anjana/repos/ballerina-perf-vm/h1_h1..." />
+    <vmarg name="-Dsun.java.launcher=SUN_STANDARD" />
+    <vmarg name="-Dsun.java.launcher.pid=234352" />
+  </vmargs>
+</initialized>
+
+</verbosegc>
+
