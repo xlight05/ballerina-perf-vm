@@ -24,4 +24,6 @@ cd ~/netty-service/
 sleep 30s
 cd ~/vm_passthrough
 bal build
-java -jar target/bin/vm_passthrough.jar &
+nohup java -jar target/bin/vm_passthrough.jar >ballerina.out 2>&1 &
+sleep 1
+tail -50 ballerina.out
