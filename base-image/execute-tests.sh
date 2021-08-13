@@ -17,11 +17,11 @@
 # Running the Load Test
 # ----------------------------------------------------------------------------
 set -e
-cp -r /base-image/h1_h1_passthrough ~/
+cp -r /base-image/vm_passthrough ~/
 cp -r /base-image/netty-service ~/
 cd ~/netty-service/
-./netty-start.sh -m 1g -- --ssl --key-store-file ~/h1_h1_passthrough/security/ballerinaKeystore.p12 --key-store-password ballerina
+./netty-start.sh -m 1g -- --ssl --key-store-file ~/vm_passthrough/security/ballerinaKeystore.p12 --key-store-password ballerina
 sleep 30s
-cd ~/h1_h1_passthrough
+cd ~/vm_passthrough
 bal build
-java -jar target/bin/h1_h1_passthrough.jar &
+java -jar target/bin/vm_passthrough.jar &
