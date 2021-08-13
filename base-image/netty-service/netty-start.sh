@@ -79,7 +79,7 @@ mkdir -p logs
 
 echo "Starting Netty"
 nohup java -Xms${heap_size} -Xmx${heap_size} -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:$gc_log_fil\
-    -jar /base-image/netty-service/$service_name-0.4.6-SNAPSHOT.jar $netty_service_flags >netty.out 2>&1 &
+    -jar ~/netty-service/$service_name-0.4.6-SNAPSHOT.jar $netty_service_flags >netty.out 2>&1 &
 
 if [ "$wait_listen" = true ]; then
     # Find the port:

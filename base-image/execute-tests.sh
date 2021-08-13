@@ -17,9 +17,11 @@
 # Running the Load Test
 # ----------------------------------------------------------------------------
 set -e
-cd /base-image/netty-service/
-./netty-start.sh -m 1g -- --ssl --key-store-file /base-image/h1_h1_passthrough/security/ballerinaKeystore.p12 --key-store-password ballerina
-sleep 60s
-sudo chmod -R 777 /base-image/h1_h1_passthrough
-cd /base-image/h1_h1_passthrough
-nohup nohup bal run
+cp -r /base-image/h1_h1_passthrough ~/
+cp -r /base-image/netty-service ~/
+cd ~/netty-service/
+./netty-start.sh -m 1g -- --ssl --key-store-file ~/h1_h1_passthrough/security/ballerinaKeystore.p12 --key-store-password ballerina
+sleep 30s
+cd ~/h1_h1_passthrough
+bal build
+java -jar target/bin/h1_h1_passthrough.jar &
